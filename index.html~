@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="body" class="page">
+    </div>
+    <script type="text/html" id="head-temp">
+        <title>{{title}}</title>
+		<link rel="icon" href="{{icon}}">
+    </script>
+    <script type="text/html" id="body-temp">
+		<div class="alert-box text-center" id="projs">
+			<div class="group column alert-cont shadow">
+				<div class="card-out">Projects</div>
+				<div class="card-out" style="overflow:auto;">
+					<div class="group column flex-center shadow">
+						{{each projects}}
+							<a href="{{$value.link}}" target="_blank" class="btn-out" style="width:100%;">{{$value.name}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<div class="group">
+					<a class="btn-out" onclick="hidealert('projs')">Close</a>
+				</div>
+			</div>
+		</div>
+		<header id="header" class="sticktop shadow text-center" >
+			<a href="/" class="btn-out">{{name}}</a>
+			<a class="btn-out" onclick="showalert('projs')">Projects</a>
+		</header>
+		<main id="main" class="text-center">
+		<h1>{{name}}</h1>
+		{{@markdown(description)}}
+		<div class="card-out text-center shadow" style="min-width:60%">
+			<img class="avatar shadow" src="{{avatar}}">
+			<h1>{{author}}</h1>
+			{{@markdown(profile)}}
+			html:<br>
+			<div class="card-out shadow">
+				x<sup>2</sup>=1<br>
+				x=±1<br>
+			</div>
+			<br>
+			mathjax:<br>
+			<div class="card-out shadow">	{{@markdown(`$x^2=1$  \n$x=\\pm1$  \n$\\zeta(2)=\\sum^\\infty_{i=1}\\frac{1}{i^2}=\\frac{\\pi^2}{6}$`)}}</div>
+		</div><br><br>
+		<div class="card-out shadow" style="min-width:60%">
+			<h1>Our Projects</h1><br>
+			{{each projects}}
+			<a href="{{$value.link}}" target="_blank" class="shadow btn-out">{{$value.name}}</a><br><br>
+			{{/each}}
+		</div>
+		<br><br>
+		<div class="card-out shadow" style="min-width:60%">
+			<h1>Join Us</h1>
+			<h2>By Link</h2>
+			<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=MNf1dEgBJ8_nTdw-uWxH6zht7zMnGmy4&jump_from=webapi"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="科技交流群" title="科技交流群"></a>
+			<br><br>
+			<h2>Or By Qrcode</h2>
+			<img class="shadow" src="https://7.dusays.com/2021/03/28/426b65a4e793a.png">
+		</div>
+		</main>
+		<footer id="footer" class="shadow stickbot text-center">
+			Powered By Wsyear&Wdssean<br>
+			&COPY{{author}}
+		</footer>
+    </script>
+    <script src="/config.js"></script>
+    <script src="/packs/template-web.js"></script>
+    <script src="/packs/template.js"></script>
+    <script src="/packs/marked.min.js"></script>
+    <script src="/style/main.js"></script>
+	<link rel="stylesheet" href="/style/main.css">
+	<link rel="stylesheet" href="/style/costumize.css">
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            options:{
+                enableMenu: false
+            }
+        }
+    </script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script>
+		settitle(config.name);
+		setmd();
+		init();
+		startcgtt(":)","你不要我了啊");
+    </script>
+</body>
+
+</html>
