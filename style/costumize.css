@@ -8,13 +8,16 @@
 	transform:rotate(360deg);
 }
 #footer{
-	background-color:white;
+	background-color:#313131;
 	padding:.5rem 2.5rem;
+	color:#e2e2e2;
 }
 #header{
-	background-color:white;
+	background-color:#313131;
 	padding:.5rem 2.5rem;
+	color:#e2e2e2e2;
 }
 #main{
 	padding:20px;
 }
+
